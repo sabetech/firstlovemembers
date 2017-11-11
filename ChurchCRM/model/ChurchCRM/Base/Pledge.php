@@ -1875,11 +1875,11 @@ abstract class Pledge implements ActiveRecordInterface
             $keys[19] => $this->getNondeductible(),
             $keys[20] => $this->getGroupkey(),
         );
-        if ($result[$keys[3]] instanceof \DateTime) {
+        if ($result[$keys[3]] instanceof \DateTimeInterface) {
             $result[$keys[3]] = $result[$keys[3]]->format('c');
         }
 
-        if ($result[$keys[8]] instanceof \DateTime) {
+        if ($result[$keys[8]] instanceof \DateTimeInterface) {
             $result[$keys[8]] = $result[$keys[8]]->format('c');
         }
 

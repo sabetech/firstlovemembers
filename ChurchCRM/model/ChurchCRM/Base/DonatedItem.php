@@ -1440,7 +1440,7 @@ abstract class DonatedItem implements ActiveRecordInterface
             $keys[13] => $this->getEntereddate(),
             $keys[14] => $this->getPicture(),
         );
-        if ($result[$keys[13]] instanceof \DateTime) {
+        if ($result[$keys[13]] instanceof \DateTimeInterface) {
             $result[$keys[13]] = $result[$keys[13]]->format('c');
         }
 

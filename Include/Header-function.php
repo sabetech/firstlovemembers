@@ -7,7 +7,23 @@
  *
  *  Copyright 2001-2004 Phillip Hullquist, Deane Barker, Chris Gebhardt, Michael Wilt
  *
-
+ *
+ *  LICENSE:
+ *  (C) Free Software Foundation, Inc.
+ *
+ *  ChurchCRM is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful, but
+ *  WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *  General Public License for more details.
+ *
+ *  http://www.gnu.org/licenses
+ *
+ *  This file best viewed in a text editor with tabs stops set to 4 characters
  *
  ******************************************************************************/
 
@@ -16,7 +32,6 @@ require_once 'Functions.php';
 use ChurchCRM\Service\SystemService;
 use ChurchCRM\dto\SystemURLs;
 use ChurchCRM\Service\NotificationService;
-use ChurchCRM\dto\SystemConfig;
 
 function Header_system_notifications()
 {
@@ -83,7 +98,9 @@ function Header_modals()
                             <li><?= gettext('When you click "submit," an error report will be posted to the ChurchCRM GitHub Issue tracker.') ?></li>
                             <li><?= gettext('Please do not include any confidential information.') ?></li>
                             <li><?= gettext('Some general information about your system will be submitted along with the request such as Server version and browser headers.') ?></li>
-                            <li><?= gettext('No personally identifiable information will be submitted unless you purposefully include it.') ?></li>
+                            <li><?= gettext('No personally identifiable information will be submitted unless you purposefully include it.') ?>
+                                "
+                            </li>
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -110,7 +127,6 @@ function Header_body_scripts()
             shortLocale: "<?= $localeInfo->getShortLocale() ?>",
             maxUploadSize: "<?= $systemService->getMaxUploadFileSize(true) ?>",
             maxUploadSizeBytes: "<?= $systemService->getMaxUploadFileSize(false) ?>",
-            datePickerformat:"<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>",
             plugin: {
                 dataTable : {
                    "language": {
@@ -227,7 +243,7 @@ function addMenuItem($aMenu, $mIdx)
     if (!($aMenu['ismenu']) || ($numItems > 0)) {
         if ($link) {
             if ($aMenu['name'] != 'sundayschool-dash') { // HACK to remove the sunday school 2nd dashboard
-                echo "<li><a href='$link'>";
+        echo "<li><a href='$link'>";
                 if ($aMenu['icon'] != '') {
                     echo '<i class="fa ' . $aMenu['icon'] . '"></i>';
                 }

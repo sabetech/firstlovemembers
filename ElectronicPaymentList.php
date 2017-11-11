@@ -7,7 +7,12 @@
  *
  *  http://www.churchcrm.io/
  *  Copyright 2014 Michael Wilt
-  *
+ *
+ *  ChurchCRM is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
  ******************************************************************************/
 
 // Include the function library
@@ -228,7 +233,8 @@ while ($aRow = mysqli_fetch_array($rsAutopayments)) {
     //Alternate the row color
     $sRowClass = AlternateRowStyle($sRowClass);
 
-    //Display the row?>
+    //Display the row
+?>
 	<tr id="PaymentMethodRow<?= $aut_ID ?>" class="<?= $sRowClass ?>">
 		<td>
 		<?php

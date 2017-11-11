@@ -1376,7 +1376,8 @@ abstract class KioskDevice implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('KioskAssignment' == $relationName) {
-            return $this->initKioskAssignments();
+            $this->initKioskAssignments();
+            return;
         }
     }
 

@@ -9,7 +9,6 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use ChurchCRM\dto\Photo;
 use ChurchCRM\Utils\GeoUtils;
 use DateTime;
-use ChurchCRM\Emails\NewPersonOrFamilyEmail;
 
 /**
  * Skeleton subclass for representing a row from the 'family_fam' table.
@@ -82,13 +81,6 @@ class Family extends BaseFamily implements iPhoto
     public function postInsert(ConnectionInterface $con = null)
     {
         $this->createTimeLineNote('create');
-        if (!empty(SystemConfig::getValue("sNewPersonNotificationRecipientIDs")))
-        {
-          $NotificationEmail = new NewPersonOrFamilyEmail($this);
-          if (!$NotificationEmail->send()) {
-            $logger->warn($NotificationEmail->getError());
-          }
-        }
     }
 
     public function postUpdate(ConnectionInterface $con = null)
@@ -301,12 +293,9 @@ class Family extends BaseFamily implements iPhoto
         $this->createTimeLineNote('verify');
     }
 
-    public function getFamilyString($booleanIncludeHOH=true)
+    public function getFamilyString()
     {    
-      $HoH = [];
-      if ($booleanIncludeHOH) {
-        $HoH = $this->getHeadPeople();
-      }
+      $HoH = $this->getHeadPeople();
       if (count($HoH) == 1)
       {
          return $this->getName(). ": " . $HoH[0]->getFirstName() . " - " . $this->getAddress();
@@ -356,7 +345,7 @@ class Family extends BaseFamily implements iPhoto
     {
       $searchArray=[
           "Id" => $this->getId(),
-          "displayName" => $this->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+          "displayName" => $this->getFamilyString(),
           "uri" => SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $this->getId()
       ];
       return $searchArray;

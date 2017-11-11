@@ -968,6 +968,21 @@ abstract class ".$this->getUnqualifiedClassName().$parentClass." implements Acti
         return \$this->$cloUnserialized;";
     }
 
+    protected function addJsonAccessor(&$script, Column $column)
+    {
+        $this->addDefaultAccessorComment($script, $column);
+        $this->addDefaultAccessorOpen($script, $column);
+        $this->addJsonAccessorBody($script, $column);
+        $this->addDefaultAccessorClose($script);
+    }
+
+    protected function addJsonAccessorBody(&$script, Column $column)
+    {
+        $clo = $column->getLowercasedName();
+        $script .= "
+        return json_decode(\$this->$clo);";
+    }
+
     /**
      * Adds an array getter method.
      *
@@ -1779,6 +1794,25 @@ abstract class ".$this->getUnqualifiedClassName().$parentClass." implements Acti
         $this->addMutatorClose($script, $col);
     }
 
+     /**
+     * Adds a setter for Json columns.
+     * @param string &$script The script will be modified in this method.
+     * @param Column $col     The current column.
+     * @see parent::addColumnMutators()
+     */
+    protected function addJsonMutator(&$script, Column $col)
+    {
+        $clo = $col->getLowercasedName();
+
+        $this->addMutatorOpen($script, $col);
+
+        $script .= "
+        \$this->$clo = json_encode(\$v);
+        \$this->modifiedColumns[".$this->getColumnConstant($col)."] = true;
+";
+        $this->addMutatorClose($script, $col);
+    }
+
     /**
      * Adds a setter for Array columns.
      * @param string &$script The script will be modified in this method.
@@ -2551,7 +2585,7 @@ abstract class ".$this->getUnqualifiedClassName().$parentClass." implements Acti
         foreach ($this->getTable()->getColumns() as $num => $col) {
             if ($col->isTemporalType()) {
                 $script .= "
-        if (\$result[\$keys[$num]] instanceof \DateTime) {
+        if (\$result[\$keys[$num]] instanceof \DateTimeInterface) {
             \$result[\$keys[$num]] = \$result[\$keys[$num]]->format('c');
         }
         ";
@@ -3837,7 +3871,8 @@ abstract class ".$this->getUnqualifiedClassName().$parentClass." implements Acti
                 $relCol = $this->getRefFKPhpNameAffix($refFK, true);
                 $script .= "
         if ('$relationName' == \$relationName) {
-            return \$this->init$relCol();
+            \$this->init$relCol();
+            return;
         }";
             }
         }

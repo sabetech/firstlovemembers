@@ -2622,19 +2622,19 @@ abstract class Person implements ActiveRecordInterface
             $keys[30] => $this->getFriendDate(),
             $keys[31] => $this->getFlags(),
         );
-        if ($result[$keys[20]] instanceof \DateTime) {
+        if ($result[$keys[20]] instanceof \DateTimeInterface) {
             $result[$keys[20]] = $result[$keys[20]]->format('c');
         }
 
-        if ($result[$keys[26]] instanceof \DateTime) {
+        if ($result[$keys[26]] instanceof \DateTimeInterface) {
             $result[$keys[26]] = $result[$keys[26]]->format('c');
         }
 
-        if ($result[$keys[27]] instanceof \DateTime) {
+        if ($result[$keys[27]] instanceof \DateTimeInterface) {
             $result[$keys[27]] = $result[$keys[27]]->format('c');
         }
 
-        if ($result[$keys[30]] instanceof \DateTime) {
+        if ($result[$keys[30]] instanceof \DateTimeInterface) {
             $result[$keys[30]] = $result[$keys[30]]->format('c');
         }
 
@@ -3389,19 +3389,24 @@ abstract class Person implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('WhyCame' == $relationName) {
-            return $this->initWhyCames();
+            $this->initWhyCames();
+            return;
         }
         if ('Note' == $relationName) {
-            return $this->initNotes();
+            $this->initNotes();
+            return;
         }
         if ('Person2group2roleP2g2r' == $relationName) {
-            return $this->initPerson2group2roleP2g2rs();
+            $this->initPerson2group2roleP2g2rs();
+            return;
         }
         if ('EventAttend' == $relationName) {
-            return $this->initEventAttends();
+            $this->initEventAttends();
+            return;
         }
         if ('PersonProperty' == $relationName) {
-            return $this->initPersonProperties();
+            $this->initPersonProperties();
+            return;
         }
     }
 

@@ -1308,11 +1308,11 @@ abstract class Event implements ActiveRecordInterface
             $keys[8] => $this->getTypeName(),
             $keys[9] => $this->getGroupId(),
         );
-        if ($result[$keys[5]] instanceof \DateTime) {
+        if ($result[$keys[5]] instanceof \DateTimeInterface) {
             $result[$keys[5]] = $result[$keys[5]]->format('c');
         }
 
-        if ($result[$keys[6]] instanceof \DateTime) {
+        if ($result[$keys[6]] instanceof \DateTimeInterface) {
             $result[$keys[6]] = $result[$keys[6]]->format('c');
         }
 
@@ -1764,10 +1764,12 @@ abstract class Event implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('EventAttend' == $relationName) {
-            return $this->initEventAttends();
+            $this->initEventAttends();
+            return;
         }
         if ('KioskAssignment' == $relationName) {
-            return $this->initKioskAssignments();
+            $this->initKioskAssignments();
+            return;
         }
     }
 

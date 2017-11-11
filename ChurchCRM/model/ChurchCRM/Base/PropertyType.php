@@ -1201,7 +1201,8 @@ abstract class PropertyType implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('Property' == $relationName) {
-            return $this->initProperties();
+            $this->initProperties();
+            return;
         }
     }
 

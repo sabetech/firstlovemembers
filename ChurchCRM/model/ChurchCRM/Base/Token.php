@@ -917,7 +917,7 @@ abstract class Token implements ActiveRecordInterface
             $keys[3] => $this->getReferenceId(),
             $keys[4] => $this->getRemainingUses(),
         );
-        if ($result[$keys[2]] instanceof \DateTime) {
+        if ($result[$keys[2]] instanceof \DateTimeInterface) {
             $result[$keys[2]] = $result[$keys[2]]->format('c');
         }
 

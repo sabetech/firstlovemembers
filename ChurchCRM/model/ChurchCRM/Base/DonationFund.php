@@ -1196,7 +1196,8 @@ abstract class DonationFund implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('Pledge' == $relationName) {
-            return $this->initPledges();
+            $this->initPledges();
+            return;
         }
     }
 

@@ -1302,7 +1302,7 @@ abstract class CanvassData implements ActiveRecordInterface
             $keys[10] => $this->getNotInterested(),
             $keys[11] => $this->getWhyNotInterested(),
         );
-        if ($result[$keys[4]] instanceof \DateTime) {
+        if ($result[$keys[4]] instanceof \DateTimeInterface) {
             $result[$keys[4]] = $result[$keys[4]]->format('c');
         }
 

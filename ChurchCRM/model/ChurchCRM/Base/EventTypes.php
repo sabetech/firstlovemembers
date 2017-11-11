@@ -1206,11 +1206,11 @@ abstract class EventTypes implements ActiveRecordInterface
             $keys[7] => $this->getActive(),
             $keys[8] => $this->getGroupId(),
         );
-        if ($result[$keys[2]] instanceof \DateTime) {
+        if ($result[$keys[2]] instanceof \DateTimeInterface) {
             $result[$keys[2]] = $result[$keys[2]]->format('c');
         }
 
-        if ($result[$keys[6]] instanceof \DateTime) {
+        if ($result[$keys[6]] instanceof \DateTimeInterface) {
             $result[$keys[6]] = $result[$keys[6]]->format('c');
         }
 

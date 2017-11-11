@@ -2,11 +2,9 @@
 
 namespace ChurchCRM\Utils;
 
-use ChurchCRM\dto\SystemConfig;
-
 class InputUtils {
   
-  private static $AllowedHTMLTags = '<a><b><i><u><h1><h2><h3><h4><h5><h6><img>';
+  private static $AllowedHTMLTags = '<a><b><i><u><h1><h2><h3><h4><h5><h6>';
   
   public static function LegacyFilterInputArr($arr, $key, $type = 'string', $size = 1)
   {
@@ -17,13 +15,7 @@ class InputUtils {
       }
   }
   
-  public static function translate_special_charset ($string)
-	{
-		if (empty($string))
-			return "";
-		
-		return (SystemConfig::getValue("sCSVExportCharset") == "UTF-8")?gettext($string):iconv('UTF-8', SystemConfig::getValue("sCSVExportCharset"), gettext($string));
-	} 	 
+   
 
   public static function FilterString($sInput)
   {
@@ -67,11 +59,7 @@ class InputUtils {
   public static function FilterDate($sInput)
   {
     // Attempts to take a date in any format and convert it to YYYY-MM-DD format
-    // Logel Philippe
-    if (empty($sInput))
-    	return "";
-    else 
-      return date('Y-m-d', strtotime(str_replace("/","-",$sInput)));
+    return date('Y-m-d', strtotime($sInput));
   }
 
   // Sanitizes user input as a security measure

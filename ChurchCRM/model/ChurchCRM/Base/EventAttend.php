@@ -1091,11 +1091,11 @@ abstract class EventAttend implements ActiveRecordInterface
             $keys[5] => $this->getCheckoutDate(),
             $keys[6] => $this->getCheckoutId(),
         );
-        if ($result[$keys[3]] instanceof \DateTime) {
+        if ($result[$keys[3]] instanceof \DateTimeInterface) {
             $result[$keys[3]] = $result[$keys[3]]->format('c');
         }
 
-        if ($result[$keys[5]] instanceof \DateTime) {
+        if ($result[$keys[5]] instanceof \DateTimeInterface) {
             $result[$keys[5]] = $result[$keys[5]]->format('c');
         }
 

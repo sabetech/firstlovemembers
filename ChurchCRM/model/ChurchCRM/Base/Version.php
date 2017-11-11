@@ -885,11 +885,11 @@ abstract class Version implements ActiveRecordInterface
             $keys[2] => $this->getUpdateStart(),
             $keys[3] => $this->getUpdateEnd(),
         );
-        if ($result[$keys[2]] instanceof \DateTime) {
+        if ($result[$keys[2]] instanceof \DateTimeInterface) {
             $result[$keys[2]] = $result[$keys[2]]->format('c');
         }
 
-        if ($result[$keys[3]] instanceof \DateTime) {
+        if ($result[$keys[3]] instanceof \DateTimeInterface) {
             $result[$keys[3]] = $result[$keys[3]]->format('c');
         }
 

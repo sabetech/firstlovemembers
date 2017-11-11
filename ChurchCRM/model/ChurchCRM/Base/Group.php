@@ -1791,13 +1791,16 @@ abstract class Group implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('Person2group2roleP2g2r' == $relationName) {
-            return $this->initPerson2group2roleP2g2rs();
+            $this->initPerson2group2roleP2g2rs();
+            return;
         }
         if ('EventTypes' == $relationName) {
-            return $this->initEventTypess();
+            $this->initEventTypess();
+            return;
         }
         if ('Event' == $relationName) {
-            return $this->initEvents();
+            $this->initEvents();
+            return;
         }
     }
 

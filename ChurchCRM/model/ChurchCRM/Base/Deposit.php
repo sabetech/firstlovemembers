@@ -1034,7 +1034,7 @@ abstract class Deposit implements ActiveRecordInterface
             $keys[4] => $this->getClosed(),
             $keys[5] => $this->getType(),
         );
-        if ($result[$keys[1]] instanceof \DateTime) {
+        if ($result[$keys[1]] instanceof \DateTimeInterface) {
             $result[$keys[1]] = $result[$keys[1]]->format('c');
         }
 
@@ -1359,7 +1359,8 @@ abstract class Deposit implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('Pledge' == $relationName) {
-            return $this->initPledges();
+            $this->initPledges();
+            return;
         }
     }
 

@@ -2269,11 +2269,11 @@ abstract class AutoPayment implements ActiveRecordInterface
             $keys[28] => $this->getCreditcardvanco(),
             $keys[29] => $this->getAccountVanco(),
         );
-        if ($result[$keys[4]] instanceof \DateTime) {
+        if ($result[$keys[4]] instanceof \DateTimeInterface) {
             $result[$keys[4]] = $result[$keys[4]]->format('c');
         }
 
-        if ($result[$keys[25]] instanceof \DateTime) {
+        if ($result[$keys[25]] instanceof \DateTimeInterface) {
             $result[$keys[25]] = $result[$keys[25]]->format('c');
         }
 

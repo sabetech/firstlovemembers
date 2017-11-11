@@ -2988,51 +2988,51 @@ abstract class User implements ActiveRecordInterface
             $keys[33] => $this->getSearchfamily(),
             $keys[34] => $this->getCanvasser(),
         );
-        if ($result[$keys[3]] instanceof \DateTime) {
+        if ($result[$keys[3]] instanceof \DateTimeInterface) {
             $result[$keys[3]] = $result[$keys[3]]->format('c');
         }
 
-        if ($result[$keys[18]] instanceof \DateTime) {
+        if ($result[$keys[18]] instanceof \DateTimeInterface) {
             $result[$keys[18]] = $result[$keys[18]]->format('c');
         }
 
-        if ($result[$keys[23]] instanceof \DateTime) {
+        if ($result[$keys[23]] instanceof \DateTimeInterface) {
             $result[$keys[23]] = $result[$keys[23]]->format('c');
         }
 
-        if ($result[$keys[24]] instanceof \DateTime) {
+        if ($result[$keys[24]] instanceof \DateTimeInterface) {
             $result[$keys[24]] = $result[$keys[24]]->format('c');
         }
 
-        if ($result[$keys[25]] instanceof \DateTime) {
+        if ($result[$keys[25]] instanceof \DateTimeInterface) {
             $result[$keys[25]] = $result[$keys[25]]->format('c');
         }
 
-        if ($result[$keys[26]] instanceof \DateTime) {
+        if ($result[$keys[26]] instanceof \DateTimeInterface) {
             $result[$keys[26]] = $result[$keys[26]]->format('c');
         }
 
-        if ($result[$keys[27]] instanceof \DateTime) {
+        if ($result[$keys[27]] instanceof \DateTimeInterface) {
             $result[$keys[27]] = $result[$keys[27]]->format('c');
         }
 
-        if ($result[$keys[28]] instanceof \DateTime) {
+        if ($result[$keys[28]] instanceof \DateTimeInterface) {
             $result[$keys[28]] = $result[$keys[28]]->format('c');
         }
 
-        if ($result[$keys[29]] instanceof \DateTime) {
+        if ($result[$keys[29]] instanceof \DateTimeInterface) {
             $result[$keys[29]] = $result[$keys[29]]->format('c');
         }
 
-        if ($result[$keys[30]] instanceof \DateTime) {
+        if ($result[$keys[30]] instanceof \DateTimeInterface) {
             $result[$keys[30]] = $result[$keys[30]]->format('c');
         }
 
-        if ($result[$keys[31]] instanceof \DateTime) {
+        if ($result[$keys[31]] instanceof \DateTimeInterface) {
             $result[$keys[31]] = $result[$keys[31]]->format('c');
         }
 
-        if ($result[$keys[32]] instanceof \DateTime) {
+        if ($result[$keys[32]] instanceof \DateTimeInterface) {
             $result[$keys[32]] = $result[$keys[32]]->format('c');
         }
 
@@ -3714,7 +3714,8 @@ abstract class User implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('UserConfig' == $relationName) {
-            return $this->initUserConfigs();
+            $this->initUserConfigs();
+            return;
         }
     }
 

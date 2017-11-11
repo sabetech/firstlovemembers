@@ -1259,11 +1259,11 @@ abstract class Note implements ActiveRecordInterface
             $keys[8] => $this->getEditedBy(),
             $keys[9] => $this->getType(),
         );
-        if ($result[$keys[5]] instanceof \DateTime) {
+        if ($result[$keys[5]] instanceof \DateTimeInterface) {
             $result[$keys[5]] = $result[$keys[5]]->format('c');
         }
 
-        if ($result[$keys[6]] instanceof \DateTime) {
+        if ($result[$keys[6]] instanceof \DateTimeInterface) {
             $result[$keys[6]] = $result[$keys[6]]->format('c');
         }
 

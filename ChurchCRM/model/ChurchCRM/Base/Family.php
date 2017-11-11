@@ -2147,19 +2147,19 @@ abstract class Family implements ActiveRecordInterface
             $keys[24] => $this->getLongitude(),
             $keys[25] => $this->getEnvelope(),
         );
-        if ($result[$keys[12]] instanceof \DateTime) {
+        if ($result[$keys[12]] instanceof \DateTimeInterface) {
             $result[$keys[12]] = $result[$keys[12]]->format('c');
         }
 
-        if ($result[$keys[13]] instanceof \DateTime) {
+        if ($result[$keys[13]] instanceof \DateTimeInterface) {
             $result[$keys[13]] = $result[$keys[13]]->format('c');
         }
 
-        if ($result[$keys[14]] instanceof \DateTime) {
+        if ($result[$keys[14]] instanceof \DateTimeInterface) {
             $result[$keys[14]] = $result[$keys[14]]->format('c');
         }
 
-        if ($result[$keys[20]] instanceof \DateTime) {
+        if ($result[$keys[20]] instanceof \DateTimeInterface) {
             $result[$keys[20]] = $result[$keys[20]]->format('c');
         }
 
@@ -2726,13 +2726,16 @@ abstract class Family implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('Person' == $relationName) {
-            return $this->initPeople();
+            $this->initPeople();
+            return;
         }
         if ('Note' == $relationName) {
-            return $this->initNotes();
+            $this->initNotes();
+            return;
         }
         if ('Pledge' == $relationName) {
-            return $this->initPledges();
+            $this->initPledges();
+            return;
         }
     }
 

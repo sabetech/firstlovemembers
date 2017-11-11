@@ -7,7 +7,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 class PersonService
 {
-    public function search($searchTerm, $includeFamilyRole=true)
+    public function search($searchTerm)
     {
         $searchLikeString = '%'.$searchTerm.'%';
         $people = PersonQuery::create()->
@@ -28,20 +28,19 @@ class PersonService
             $values['address'] = $person->getAddress();
             $values['role'] = $person->getFamilyRoleName();
 
-            if ($includeFamilyRole) {
-                $familyRole = "(";
-                if ($values['familyID']) {
-                    if ($person->getFamilyRole()) {
-                        $familyRole .= $person->getFamilyRoleName();
-                    } else {
-                        $familyRole .= gettext('Part');
-                    }
-                    $familyRole .= gettext(' of the') . ' <a href="FamilyView.php?FamilyID=' . $values['familyID'] . '">' . $person->getFamily()->getName() . '</a> ' . gettext('family') . ' )';
+            $familyRole="(";
+            if($values['familyID']) {
+                if ($person->getFamilyRole()) {
+                    $familyRole .= $person->getFamilyRoleName();
                 } else {
-                    $familyRole = gettext('(No assigned family)');
+                    $familyRole .=  gettext('Part');
                 }
-                $values['familyRole'] = $familyRole;
+                $familyRole .= gettext(' of the').' <a href="FamilyView.php?FamilyID='. $values['familyID'].'">'.$person->getFamily()->getName().'</a> '.gettext('family').' )';
+            } else {
+                $familyRole = gettext('(No assigned family)');
             }
+            $values['familyRole'] = $familyRole;
+
             array_push($return, $values);
         }
 
@@ -51,7 +50,7 @@ class PersonService
     public function getPersonsJSON($persons)
     {
         if ($persons) {
-            return '{"Persons": '.json_encode($persons).'}';
+            return '{"persons": '.json_encode($persons).'}';
         } else {
             return false;
         }

@@ -985,11 +985,11 @@ abstract class FundRaiser implements ActiveRecordInterface
             $keys[4] => $this->getEnteredBy(),
             $keys[5] => $this->getEnteredDate(),
         );
-        if ($result[$keys[1]] instanceof \DateTime) {
+        if ($result[$keys[1]] instanceof \DateTimeInterface) {
             $result[$keys[1]] = $result[$keys[1]]->format('c');
         }
 
-        if ($result[$keys[5]] instanceof \DateTime) {
+        if ($result[$keys[5]] instanceof \DateTimeInterface) {
             $result[$keys[5]] = $result[$keys[5]]->format('c');
         }
 

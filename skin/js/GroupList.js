@@ -31,19 +31,12 @@ $(document).ready(function () {
   });
 
   dataT = $("#groupsTable").DataTable({
-  	"initComplete": function( settings, json ) {
-   	 	if (window.groupSelect != null)
-   	 	{
-   	 		dataT.search(window.groupSelect).draw();
-   	 	}
-  	},
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
     responsive: true,
     ajax: {
       url: window.CRM.root + "/api/groups/",
-      type: 'GET',
       dataSrc: "Groups"
     },
     columns: [
@@ -76,17 +69,7 @@ $(document).ready(function () {
         title:i18next.t( 'Group Type'),
         data: 'groupType',
         defaultContent: "",
-        searchable: true,
-        render: function (data, type, full, meta) {
-		  if (data)
-		  {
-          	return data;
-          }
-          else
-          {
-          	return i18next.t('Unassigned');
-          }
-        }
+        searchable: true
       }
     ]
   }).on('draw.dt', function () {
@@ -99,10 +82,5 @@ $(document).ready(function () {
         $(element).html(i18next.t("Not all members of this group are in the cart")+"<br><a onclick=\"saveScrollCoordinates()\" class=\"btn btn-primary\" href=\"GroupList.php?AddGroupToPeopleCart=" + objectID + "\">" + i18next.t("Add all") + "</a>");
       }
     });
-  });
-  
-  $('#table-filter').on('change', function(){
-       dataT.search(this.value).draw();
-       localStorage.setItem("groupSelect",this.selectedIndex);
   });
 });

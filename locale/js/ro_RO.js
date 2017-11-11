@@ -42,7 +42,6 @@ try {window.CRM.i18keys = {
     "Required": "Necesar",
     "First Name": "Prenume",
     "Middle Name": "Al doilea prenume",
-    "Zip": "Cod postal\n",
     "Envelope": "Plic",
     "Work/Other Email": "Muncă / Alte E-mail",
     "Membership Date": "Membru Data",

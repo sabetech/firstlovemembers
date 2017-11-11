@@ -929,7 +929,7 @@ abstract class EmailRecipientPending implements ActiveRecordInterface
             $keys[3] => $this->getFailedTime(),
             $keys[4] => $this->getEmailAddress(),
         );
-        if ($result[$keys[3]] instanceof \DateTime) {
+        if ($result[$keys[3]] instanceof \DateTimeInterface) {
             $result[$keys[3]] = $result[$keys[3]]->format('c');
         }
 

@@ -108,16 +108,12 @@ class Photo
 
   public function getThumbnailURI()
   {
-    if (!file_exists($this->photoThumbURI))
-    {
-      $this->createThumbnail();
-    }
     return $this->photoThumbURI;
   }
   
   public function getPhotoURI()
   {
-    return $this->photoURI;
+    return $this->photoThumbURI;
   }
   
   public function isPhotoLocal()

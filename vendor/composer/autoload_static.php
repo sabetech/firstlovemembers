@@ -4,10 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece
+class ComposerStaticInita1d9119c8bc1278dc9ba03692db91d87
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'a16312f9300fed4a097923eacb0ba814' => __DIR__ . '/..' . '/igorw/get-in/src/get_in.php',
     );
@@ -42,9 +45,17 @@ class ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
+        'N' => 
+        array (
+            'Nexmo\\' => 6,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
+        ),
+        'L' => 
+        array (
+            'Lcobucci\\JWT\\' => 13,
         ),
         'I' => 
         array (
@@ -52,8 +63,17 @@ class ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece
             'Interop\\Container\\' => 18,
             'Ifsnop\\' => 7,
         ),
+        'H' => 
+        array (
+            'Http\\Promise\\' => 13,
+            'Http\\Client\\' => 12,
+            'Http\\Adapter\\Guzzle6\\' => 21,
+        ),
         'G' => 
         array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
             'Github\\' => 7,
         ),
         'F' => 
@@ -135,9 +155,17 @@ class ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Nexmo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nexmo/client/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Lcobucci\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
         ),
         'Ivory\\HttpAdapter\\' => 
         array (
@@ -150,6 +178,30 @@ class ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece
         'Ifsnop\\' => 
         array (
             0 => __DIR__ . '/..' . '/ifsnop/mysqldump-php/src/Ifsnop',
+        ),
+        'Http\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/promise/src',
+        ),
+        'Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/httplug/src',
+        ),
+        'Http\\Adapter\\Guzzle6\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
         'Github\\' => 
         array (
@@ -313,7 +365,6 @@ class ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece
         'ChurchCRM\\Emails\\FamilyVerificationEmail' => __DIR__ . '/../..' . '/ChurchCRM/Emails/verify/FamilyVerificationEmail.php',
         'ChurchCRM\\Emails\\LockedEmail' => __DIR__ . '/../..' . '/ChurchCRM/Emails/users/LockedEmail.php',
         'ChurchCRM\\Emails\\NewAccountEmail' => __DIR__ . '/../..' . '/ChurchCRM/Emails/users/NewAccountEmail.php',
-        'ChurchCRM\\Emails\\NewPersonOrFamilyEmail' => __DIR__ . '/../..' . '/ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php',
         'ChurchCRM\\Emails\\NotificationEmail' => __DIR__ . '/../..' . '/ChurchCRM/Emails/notifications/NotificationEmail.php',
         'ChurchCRM\\Emails\\PasswordChangeEmail' => __DIR__ . '/../..' . '/ChurchCRM/Emails/users/PasswordChangeEmail.php',
         'ChurchCRM\\Emails\\ResetPasswordEmail' => __DIR__ . '/../..' . '/ChurchCRM/Emails/users/ResetPasswordEmail.php',
@@ -470,7 +521,6 @@ class ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece
         'ChurchCRM\\WhyCame' => __DIR__ . '/../..' . '/ChurchCRM/model/ChurchCRM/WhyCame.php',
         'ChurchCRM\\WhyCameQuery' => __DIR__ . '/../..' . '/ChurchCRM/model/ChurchCRM/WhyCameQuery.php',
         'ChurchCRM\\data\\Countries' => __DIR__ . '/../..' . '/ChurchCRM/data/Countries.php',
-        'ChurchCRM\\dto\\Cart' => __DIR__ . '/../..' . '/ChurchCRM/dto/Cart.php',
         'ChurchCRM\\dto\\ChurchMetaData' => __DIR__ . '/../..' . '/ChurchCRM/dto/ChurchMetaData.php',
         'ChurchCRM\\dto\\ConfigItem' => __DIR__ . '/../..' . '/ChurchCRM/dto/ConfigItem.php',
         'ChurchCRM\\dto\\KioskAssignmentTypes' => __DIR__ . '/../..' . '/ChurchCRM/dto/KioskAssignmentTypes.php',
@@ -496,10 +546,10 @@ class ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita81cd0c0150d23c4bd550d2aa7712ece::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita1d9119c8bc1278dc9ba03692db91d87::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita1d9119c8bc1278dc9ba03692db91d87::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita1d9119c8bc1278dc9ba03692db91d87::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInita1d9119c8bc1278dc9ba03692db91d87::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1468,7 +1468,8 @@ abstract class Property implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('PersonProperty' == $relationName) {
-            return $this->initPersonProperties();
+            $this->initPersonProperties();
+            return;
         }
     }
 

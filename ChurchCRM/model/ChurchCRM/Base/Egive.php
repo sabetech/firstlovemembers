@@ -980,11 +980,11 @@ abstract class Egive implements ActiveRecordInterface
             $keys[4] => $this->getEnteredBy(),
             $keys[5] => $this->getEditedBy(),
         );
-        if ($result[$keys[2]] instanceof \DateTime) {
+        if ($result[$keys[2]] instanceof \DateTimeInterface) {
             $result[$keys[2]] = $result[$keys[2]]->format('c');
         }
 
-        if ($result[$keys[3]] instanceof \DateTime) {
+        if ($result[$keys[3]] instanceof \DateTimeInterface) {
             $result[$keys[3]] = $result[$keys[3]]->format('c');
         }
 

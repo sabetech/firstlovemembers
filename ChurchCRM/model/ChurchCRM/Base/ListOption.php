@@ -1210,7 +1210,8 @@ abstract class ListOption implements ActiveRecordInterface
     public function initRelation($relationName)
     {
         if ('Group' == $relationName) {
-            return $this->initGroups();
+            $this->initGroups();
+            return;
         }
     }
 
